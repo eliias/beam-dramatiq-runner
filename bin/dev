@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if ! command -v foreman &> /dev/null
+then
+  echo "Installing foreman..."
+  gem install foreman
+fi
+
+foreman start -f Procfile.dev
+
+EXIT_STATUS=$?
+
+if [ $EXIT_STATUS -ne 0 ]; then
+  echo "!!"
+  echo "!! \`dev\` exited with error status $EXIT_STATUS. Please run \`up\` to ensure dev prerequisites are up to date."
+  echo "!!"
+fi

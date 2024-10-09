@@ -1,0 +1,1 @@
+runner: dramatiq beam_dramatiq_runner.tasks --watch ./
